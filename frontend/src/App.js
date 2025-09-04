@@ -6,6 +6,23 @@ import axios from "axios";
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
+const PresentationPage = () => {
+  return (
+    <div className="presentation-container">
+      {/* All 15 slides of the complete presentation */}
+      <div style={{ textAlign: 'center', padding: '40px', background: 'rgba(255,255,255,0.9)', borderRadius: '20px', marginBottom: '20px' }}>
+        <h1 style={{ color: '#667eea', marginBottom: '20px' }}>IDPro+ - Présentation Complète</h1>
+        <p style={{ fontSize: '1.2em', color: '#666' }}>
+          Pour voir la présentation complète avec les 15 slides détaillées, 
+          <a href="/idpro-presentation.html" style={{ color: '#667eea', textDecoration: 'none', fontWeight: 'bold' }}>
+            cliquez ici pour ouvrir le fichier HTML complet
+          </a>
+        </p>
+      </div>
+    </div>
+  );
+};
+
 const PresentationSlide = ({ slideNumber, children, className = "" }) => (
   <div className={`slide ${className}`}>
     <div className="slide-number">{slideNumber}/15</div>
