@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDPro+ - Présentation Investisseurs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: #333;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .presentation-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .slide {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 60px;
+            margin-bottom: 30px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .slide:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 35px 70px rgba(0,0,0,0.2);
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            background-size: 200% auto;
+            animation: slideGradient 3s ease-in-out infinite;
+        }
+
+        @keyframes slideGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .slide-number {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .slide h1 {
+            font-size: 4em;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            line-height: 1.2;
+            font-weight: 800;
+            animation: titlePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .slide h2 {
+            font-size: 2.8em;
+            margin-bottom: 40px;
+            color: #2c3e50;
+            text-align: center;
+            position: relative;
+            font-weight: 700;
+        }
+
+        .slide h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            border-radius: 2px;
+        }
+
+        .slide h3 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            color: #34495e;
+            font-weight: 600;
+        }
+
+        .slide p {
+            font-size: 1.3em;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        .hero-subtitle {
+            font-size: 1.6em;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+            border-radius: 15px;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .stat-item:hover::before {
+            left: 100%;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.8em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            color: #6c757d;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .problem-list, .solution-list {
+            list-style: none;
+        }
+
+        .problem-list li, .solution-list li {
+            padding: 20px 0;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+
+        .problem-list li:hover, .solution-list li:hover {
+            padding-left: 15px;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 10px;
+        }
+
+        .problem-list li::before {
+            content: "❌";
+            margin-right: 15px;
+            font-size: 1.3em;
+        }
+
+        .solution-list li::before {
+            content: "✅";
+            margin-right: 15px;
+            font-size: 1.3em;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(240, 147, 251, 0.05));
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+        }
+
+        .feature-card h4 {
+            font-size: 1.4em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card p {
+            font-size: 1.1em;
+            color: #6c757d;
+            margin-bottom: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .market-chart {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .chart-bar {
+            display: inline-block;
+            width: 80px;
+            margin: 0 15px;
+            text-align: center;
+        }
+
+        .bar {
+            background: linear-gradient(180deg, #667eea, #764ba2, #f093fb);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .bar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .business-model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .revenue-stream {
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            color: white;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .revenue-stream::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transition: all 0.3s ease;
+            transform: scale(0);
+        }
+
+        .revenue-stream:hover::before {
+            transform: scale(1);
+        }
+
+        .revenue-stream:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .revenue-stream h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+
+        .revenue-stream p {
+            font-size: 1em;
+            color: rgba(255,255,255,0.9);
+            position: relative;
+            z-index: 2;
+        }
+
+        .financial-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .financial-table th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .financial-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.3s ease;
+        }
+
+        .financial-table tbody tr:hover {
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .financial-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(240, 147, 251, 0.05));
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.1);
+        }
+
+        .team-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2em;
+            color: white;
+            margin-right: 25px;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .team-info h4 {
+            font-size: 1.4em;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .team-info p {
+            font-size: 1.1em;
+            color: #6c757d;
+            margin-bottom: 0;
+        }
+
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            color: white;
+            padding: 60px;
+            border-radius: 20px;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            color: #667eea;
+            padding: 18px 50px;
+            border-radius: 35px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.3em;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            background: white;
+        }
+
+        .competitive-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .competitive-table th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .competitive-table td {
+            padding: 15px 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .competitive-table .idpro {
+            background: linear-gradient(135deg, #e8f5e8, #d4edda);
+            font-weight: 600;
+            color: #155724;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 30px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #667eea, #764ba2, #f093fb);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 40px 0;
+            padding: 0 60px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            text-align: right;
+            margin-right: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            text-align: left;
+            margin-left: 50%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            border: 3px solid white;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -70px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -70px;
+        }
+
+        .timeline-content {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px 20px;
+                margin-bottom: 20px;
+            }
+
+            .slide h1 {
+                font-size: 2.5em;
+            }
+
+            .slide h2 {
+                font-size: 2em;
+            }
+
+            .two-column, .feature-grid, .business-model-grid, .team-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                margin-left: 60px !important;
+                margin-right: 0 !important;
+                text-align: left !important;
+                padding: 0 30px;
+            }
+
+            .timeline-item .timeline-dot {
+                left: -70px !important;
+                right: auto !important;
+            }
+        }
+
+        /* Animation pour l'apparition des éléments */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Amélioration du scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loaded .loading-overlay {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <div class="presentation-container">
+        <!-- Slide 1: Titre -->
+        <div class="slide">
+            <div class="slide-number">1/15</div>
+            <div class="hero-content">
+                <h1>IDPro+</h1>
+                <p class="hero-subtitle">Protection Avancée contre l'Usurpation d'Identité</p>
+                <p style="font-size: 1.2em; color: #7f8c8d; font-weight: 500;">
+                    Solution innovante de sécurisation documentaire par tokens numériques
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">€12M</span>
+                        <div class="stat-label">Marché visé 2025</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">250%</span>
+                        <div class="stat-label">Croissance annuelle</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3 ans</span>
+                        <div class="stat-label">ROI projeté</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Problématique -->
+        <div class="slide">
+            <div class="slide-number">2/15</div>
+            <h2>Le Problème : Usurpation d'Identité en Hausse</h2>
+            <div class="two-column">
+                <div>
+                    <ul class="problem-list">
+                        <li><strong>165M de victimes</strong> d'usurpation d'identité en 2024</li>
+                        <li><strong>€56 milliards</strong> de pertes économiques annuelles</li>
+                        <li><strong>Documents falsifiés</strong> : +340% en 5 ans</li>
+                        <li><strong>Vérification manuelle</strong> lente et peu fiable</li>
+                        <li><strong>Technologies obsolètes</strong> facilement contournables</li>
+                    </ul>
+                </div>
+                <div class="market-chart">
+                    <h3 style="margin-bottom: 30px;">Évolution de la Fraude Documentaire</h3>
+                    <div style="margin-top: 30px;">
+                        <div class="chart-bar">
+                            <div class="bar" style="height: 60px;"></div>
+                            <div><strong>2020</strong></div>
+                            <div>15%</div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar" style="height: 90px;"></div>
+                            <div><strong>2022</strong></div>
+                            <div>28%</div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar" style="height: 140px;"></div>
+                            <div><strong>2024</strong></div>
+                            <div>42%</div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar" style="height: 180px;"></div>
+                            <div><strong>2026*</strong></div>
+                            <div>65%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Notre Solution -->
+        <div class="slide">
+            <div class="slide-number">3/15</div>
+            <h2>IDPro+ : La Solution Révolutionnaire</h2>
+            <div class="two-column">
+                <div>
+                    <ul class="solution-list">
+                        <li><strong>Tokens numériques uniques</strong> intégrés aux documents</li>
+                        <li><strong>Vérification instantanée</strong> en temps réel</li>
+                        <li><strong>Expiration automatique</strong> et contrôle d'usage</li>
+                        <li><strong>Chiffrement militaire</strong> AES-256</li>
+                        <li><strong>API universelle</strong> pour toute intégration</li>
+                        <li><strong>Multi-plateforme</strong> : Web, Mobile, Desktop</li>
+                    </ul>
+                </div>
+                <div style="text-align: center;">
+                    <div style="background: linear-gradient(135deg, #667eea, #764ba2, #f093fb); color: white; padding: 50px; border-radius: 20px; margin-bottom: 25px; box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);">
+                        <h3 style="margin-bottom: 20px;">Token Example</h3>
+                        <div style="font-size: 2.8em; font-weight: 800; letter-spacing: 4px; margin: 25px 0;">ID7X9K2M4P</div>
+                        <p style="font-size: 1.1em; margin: 0;">Expire: 24h | Usages: 3/3</p>
+                    </div>
+                    <p style="color: #667eea; font-weight: 700; font-size: 1.3em;">99.99% de fiabilité</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Fonctionnalités Clés -->
+        <div class="slide">
+            <div class="slide-number">4/15</div>
+            <h2>Fonctionnalités Avancées</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>🔒 Sécurité Maximale</h4>
+                    <p>Chiffrement AES-256, blockchain optionnelle, audit trail complet avec traçabilité complète</p>
+                </div>
+                <div class="feature-card">
+                    <h4>⚡ Performance Ultra-Rapide</h4>
+                    <p>10K tokens/heure, vérification &lt;100ms, 99.99% uptime garanti avec monitoring 24/7</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🌐 Multi-plateforme</h4>
+                    <p>Web, iOS, Android, Desktop, API REST/GraphQL, SDK pour tous langages</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🔗 Intégration Simplifiée</h4>
+                    <p>ERP, CRM, systèmes existants via webhooks et SDK, documentation complète</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📊 Analytics & BI</h4>
+                    <p>Dashboard temps réel, métriques détaillées, alertes IA, rapports personnalisés</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🏛️ Conformité Totale</h4>
+                    <p>RGPD, SOX, ISO 27001, Common Criteria, certifications internationales</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Marché et Opportunité -->
+        <div class="slide">
+            <div class="slide-number">5/15</div>
+            <h2>Marché et Opportunité</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Taille du Marché (TAM/SAM/SOM)</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 20px; background: linear-gradient(135deg, #e8f5e8, #d4edda); margin-bottom: 15px; border-radius: 10px; border-left: 5px solid #28a745;">
+                            <strong>TAM :</strong> €45 milliards (Cybersécurité globale)
+                        </li>
+                        <li style="padding: 20px; background: linear-gradient(135deg, #fff3cd, #ffeaa7); margin-bottom: 15px; border-radius: 10px; border-left: 5px solid #ffc107;">
+                            <strong>SAM :</strong> €8.5 milliards (Protection identité)
+                        </li>
+                        <li style="padding: 20px; background: linear-gradient(135deg, #d1ecf1, #a8e6cf); margin-bottom: 15px; border-radius: 10px; border-left: 5px solid #17a2b8;">
+                            <strong>SOM :</strong> €650 millions (Sécurisation documentaire)
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Segments Cibles</h3>
+                    <div class="feature-grid" style="grid-template-columns: 1fr; gap: 15px;">
+                        <div style="padding: 20px; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-left: 5px solid #667eea; border-radius: 10px; transition: all 0.3s ease;">
+                            <strong>Gouvernement</strong> (35%)<br>
+                            <small>Administrations, services publics, justice, collectivités</small>
+                        </div>
+                        <div style="padding: 20px; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-left: 5px solid #28a745; border-radius: 10px; transition: all 0.3s ease;">
+                            <strong>Finance</strong> (30%)<br>
+                            <small>Banques, assurances, fintechs, néobanques</small>
+                        </div>
+                        <div style="padding: 20px; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-left: 5px solid #ffc107; border-radius: 10px; transition: all 0.3s ease;">
+                            <strong>Entreprises</strong> (25%)<br>
+                            <small>Fortune 500, PME, startups, scale-ups</small>
+                        </div>
+                        <div style="padding: 20px; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-left: 5px solid #dc3545; border-radius: 10px; transition: all 0.3s ease;">
+                            <strong>Éducation/Santé</strong> (10%)<br>
+                            <small>Universités, hôpitaux, certifications professionnelles</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Modèle Business -->
+        <div class="slide">
+            <div class="slide-number">6/15</div>
+            <h2>Modèle Économique Récurrent</h2>
+            <div class="business-model-grid">
+                <div class="revenue-stream">
+                    <h4>SaaS Subscription</h4>
+                    <p><strong>€49-€999/mois</strong></p>
+                    <p>Abonnement par utilisateur avec tarification basée sur le volume</p>
+                </div>
+                <div class="revenue-stream">
+                    <h4>Enterprise Licence</h4>
+                    <p><strong>€50K-€500K/an</strong></p>
+                    <p>Licences on-premise pour grandes organisations et gouvernements</p>
+                </div>
+                <div class="revenue-stream">
+                    <h4>API & Intégrations</h4>
+                    <p><strong>€0.10/vérification</strong></p>
+                    <p>Pay-per-use pour développeurs et partenaires technologiques</p>
+                </div>
+            </div>
+            
+            <table class="financial-table">
+                <thead>
+                    <tr>
+                        <th>Offre</th>
+                        <th>Prix Mensuel</th>
+                        <th>Tokens/Mois</th>
+                        <th>Support</th>
+                        <th>Marge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Starter</strong></td>
+                        <td>€49</td>
+                        <td>1,000</td>
+                        <td>Email</td>
+                        <td>75%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Professional</strong></td>
+                        <td>€199</td>
+                        <td>10,000</td>
+                        <td>Chat + Email</td>
+                        <td>80%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Enterprise</strong></td>
+                        <td>€999</td>
+                        <td>Illimité</td>
+                        <td>Dédié 24/7</td>
+                        <td>85%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Slide 7: Projections Financières -->
+        <div class="slide">
+            <div class="slide-number">7/15</div>
+            <h2>Projections Financières (5 ans)</h2>
+            <table class="financial-table">
+                <thead>
+                    <tr>
+                        <th>Métrique</th>
+                        <th>2025</th>
+                        <th>2026</th>
+                        <th>2027</th>
+                        <th>2028</th>
+                        <th>2029</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Revenus (€M)</strong></td>
+                        <td>1.2</td>
+                        <td>4.8</td>
+                        <td>12.5</td>
+                        <td>28.0</td>
+                        <td>55.0</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Croissance YoY</strong></td>
+                        <td>-</td>
+                        <td>300%</td>
+                        <td>160%</td>
+                        <td>124%</td>
+                        <td>96%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Clients Actifs</strong></td>
+                        <td>150</td>
+                        <td>800</td>
+                        <td>2,500</td>
+                        <td>6,000</td>
+                        <td>12,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ARR (€M)</strong></td>
+                        <td>1.5</td>
+                        <td>6.0</td>
+                        <td>15.0</td>
+                        <td>33.0</td>
+                        <td>65.0</td>
+                    </tr>
+                    <tr style="background: linear-gradient(135deg, #e8f5e8, #d4edda);">
+                        <td><strong>EBITDA (€M)</strong></td>
+                        <td>-0.8</td>
+                        <td>0.5</td>
+                        <td>3.8</td>
+                        <td>11.2</td>
+                        <td>24.8</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Équipe</strong></td>
+                        <td>25</td>
+                        <td>55</td>
+                        <td>120</td>
+                        <td>200</td>
+                        <td>300</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <div style="display: inline-block; padding: 30px; background: linear-gradient(135deg, #28a745, #20c997); color: white; border-radius: 15px; margin: 0 20px; box-shadow: 0 10px 25px rgba(40, 167, 69, 0.3);">
+                    <strong style="font-size: 1.2em;">Valorisation 2029</strong><br>
+                    <span style="font-size: 2.2em; font-weight: 800;">€650M</span><br>
+                    <small>Multiple 10x revenus</small>
+                </div>
+                <div style="display: inline-block; padding: 30px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 15px; margin: 0 20px; box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);">
+                    <strong style="font-size: 1.2em;">ROI Investisseur</strong><br>
+                    <span style="font-size: 2.2em; font-weight: 800;">25x</span><br>
+                    <small>Sur 5 ans</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Analyse Concurrentielle -->
+        <div class="slide">
+            <div class="slide-number">8/15</div>
+            <h2>Positionnement Concurrentiel</h2>
+            <table class="competitive-table">
+                <thead>
+                    <tr>
+                        <th>Critère</th>
+                        <th class="idpro">IDPro+</th>
+                        <th>DocuSign</th>
+                        <th>Adobe Sign</th>
+                        <th>Solutions Legacy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Tokens temporels</strong></td>
+                        <td class="idpro">✅ Natif</td>
+                        <td>❌ Non</td>
+                        <td>❌ Non</td>
+                        <td>❌ Non</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vérification temps réel</strong></td>
+                        <td class="idpro">✅ &lt;100ms</td>
+                        <td>⚠️ Limité</td>
+                        <td>⚠️ Limité</td>
+                        <td>❌ Manuel</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Anti-falsification</strong></td>
+                        <td class="idpro">✅ 99.99%</td>
+                        <td>⚠️ 95%</td>
+                        <td>⚠️ 94%</td>
+                        <td>❌ 70%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prix/mois</strong></td>
+                        <td class="idpro">€49-999</td>
+                        <td>€120-200</td>
+                        <td>€150-300</td>
+                        <td>€500+</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Intégration</strong></td>
+                        <td class="idpro">✅ API universelle</td>
+                        <td>⚠️ Limitée</td>
+                        <td>⚠️ Propriétaire</td>
+                        <td>❌ Complexe</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="margin-top: 40px; text-align: center;">
+                <div style="display: inline-block; padding: 25px; background: linear-gradient(135deg, #e8f5e8, #d4edda); border-radius: 15px; border: 3px solid #28a745; box-shadow: 0 10px 25px rgba(40, 167, 69, 0.2);">
+                    <strong style="color: #155724; font-size: 1.4em;">🏆 Avantage Concurrentiel</strong><br>
+                    <span style="color: #28a745; font-size: 1.1em;">Seule solution native de tokens temporels sur le marché</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Équipe & Leadership -->
+        <div class="slide">
+            <div class="slide-number">9/15</div>
+            <h2>Équipe de Direction</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-avatar">JS</div>
+                    <div class="team-info">
+                        <h4>Jean-Luc SIMON</h4>
+                        <p><strong>CEO & Co-fondateur</strong></p>
+                        <p>Ex-CTO Thales, 15 ans cybersécurité<br>École Polytechnique, Stanford MBA</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar">MD</div>
+                    <div class="team-info">
+                        <h4>Marie DUPONT</h4>
+                        <p><strong>CTO & Co-fondatrice</strong></p>
+                        <p>Ex-Lead Engineer Google, blockchain expert<br>MIT Computer Science, 12 ans R&D</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar">PL</div>
+                    <div class="team-info">
+                        <h4>Pierre LAURENT</h4>
+                        <p><strong>VP Sales</strong></p>
+                        <p>Ex-Regional Director Salesforce<br>HEC Paris, 18 ans B2B SaaS</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar">AR</div>
+                    <div class="team-info">
+                        <h4>Anne ROBERT</h4>
+                        <p><strong>Chief Security Officer</strong></p>
+                        <p>Ex-ANSSI, certification expert<br>ENSI, CISSP, 20 ans sécurité</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); padding: 30px; border-radius: 15px; margin-top: 40px; text-align: center;">
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">Conseil Consultatif</h3>
+                <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                    <div style="margin: 10px; color: #6c757d;">
+                        <strong>Dr. François MARTIN</strong><br>
+                        <small>Ex-CISO BNP Paribas</small>
+                    </div>
+                    <div style="margin: 10px; color: #6c757d;">
+                        <strong>Sarah WILSON</strong><br>
+                        <small>Ex-VP Product Microsoft</small>
+                    </div>
+                    <div style="margin: 10px; color: #6c757d;">
+                        <strong>Marc BERNARD</strong><br>
+                        <small>Serial Entrepreneur (3 exits)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Roadmap Produit -->
+        <div class="slide">
+            <div class="slide-number">10/15</div>
+            <h2>Roadmap Stratégique</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4 style="color: #2c3e50; margin-bottom: 10px;">Q1 2025 - MVP Launch</h4>
+                        <p>Lancement version beta, premiers clients pilotes, API core fonctionnelle</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4 style="color: #2c3e50; margin-bottom: 10px;">Q2 2025 - Scale Up</h4>
+                        <p>Mobile apps, intégrations ERP/CRM, certification ISO 27001</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4 style="color: #2c3e50; margin-bottom: 10px;">Q3 2025 - Enterprise</h4>
+                        <p>Version on-premise, blockchain intégration, solutions gouvernementales</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4 style="color: #2c3e50; margin-bottom: 10px;">Q4 2025 - International</h4>
+                        <p>Expansion Europe, partenariats stratégiques, IA prédictive</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4 style="color: #2c3e50; margin-bottom: 10px;">2026 - Global</h4>
+                        <p>Déploiement US/Asie, acquisitions ciblées, plateforme complète</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Traction & Métriques -->
+        <div class="slide">
+            <div class="slide-number">11/15</div>
+            <h2>Traction & Validation Marché</h2>
+            <div class="feature-grid">
+                <div class="feature-card" style="text-align: center;">
+                    <h4>🎯 Clients Pilotes</h4>
+                    <div style="font-size: 2.5em; font-weight: 800; color: #667eea; margin: 15px 0;">12</div>
+                    <p>Grandes entreprises en phase de test, incluant 2 banques européennes</p>
+                </div>
+                <div class="feature-card" style="text-align: center;">
+                    <h4>💰 Pipeline Commercial</h4>
+                    <div style="font-size: 2.5em; font-weight: 800; color: #28a745; margin: 15px 0;">€2.8M</div>
+                    <p>ARR potentiel avec signature prévue Q1-Q2 2025</p>
+                </div>
+                <div class="feature-card" style="text-align: center;">
+                    <h4>🔬 R&D Avancée</h4>
+                    <div style="font-size: 2.5em; font-weight: 800; color: #ffc107; margin: 15px 0;">85%</div>
+                    <p>MVP complété, tests de charge validés, architecture scalable</p>
+                </div>
+                <div class="feature-card" style="text-align: center;">
+                    <h4>🏆 Reconnaissance</h4>
+                    <div style="font-size: 2.5em; font-weight: 800; color: #dc3545; margin: 15px 0;">3</div>
+                    <p>Prix innovation cybersécurité, sélection FrenchTech 2024</p>
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); padding: 40px; border-radius: 15px; margin-top: 40px;">
+                <h3 style="text-align: center; color: #2c3e50; margin-bottom: 30px;">Partenariats Stratégiques</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <strong style="color: #667eea;">Microsoft</strong><br>
+                        <small>Partenaire Azure</small>
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <strong style="color: #667eea;">AWS</strong><br>
+                        <small>ISV Partner</small>
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <strong style="color: #667eea;">Salesforce</strong><br>
+                        <small>AppExchange</small>
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <strong style="color: #667eea;">BPI France</strong><br>
+                        <small>Innovation Grant</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Stratégie Go-to-Market -->
+        <div class="slide">
+            <div class="slide-number">12/15</div>
+            <h2>Stratégie Go-to-Market</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Approche Multi-Canal</h3>
+                    <div class="feature-grid" style="grid-template-columns: 1fr; gap: 15px;">
+                        <div style="padding: 20px; background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-left: 5px solid #2196f3; border-radius: 10px;">
+                            <strong>🎯 Vente Directe (40%)</strong><br>
+                            <small>Équipe sales dédiée grandes comptes</small>
+                        </div>
+                        <div style="padding: 20px; background: linear-gradient(135deg, #f3e5f5, #ce93d8); border-left: 5px solid #9c27b0; border-radius: 10px;">
+                            <strong>🤝 Partenaires (35%)</strong><br>
+                            <small>Intégrateurs, consultants cybersécurité</small>
+                        </div>
+                        <div style="padding: 20px; background: linear-gradient(135deg, #e8f5e8, #c8e6c9); border-left: 5px solid #4caf50; border-radius: 10px;">
+                            <strong>🌐 Digital/PLG (25%)</strong><br>
+                            <small>Freemium, self-service, marketplace</small>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3>Priorités Géographiques</h3>
+                    <div style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <div style="margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <strong>🇫🇷 France</strong>
+                                <span style="background: #667eea; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">2025</span>
+                            </div>
+                            <div style="background: #667eea; height: 8px; border-radius: 4px; width: 100%;"></div>
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <strong>🇪🇺 Europe</strong>
+                                <span style="background: #28a745; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">2026</span>
+                            </div>
+                            <div style="background: #28a745; height: 8px; border-radius: 4px; width: 75%;"></div>
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <strong>🇺🇸 États-Unis</strong>
+                                <span style="background: #ffc107; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">2027</span>
+                            </div>
+                            <div style="background: #ffc107; height: 8px; border-radius: 4px; width: 50%;"></div>
+                        </div>
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <strong>🌏 Asie-Pacifique</strong>
+                                <span style="background: #dc3545; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">2028</span>
+                            </div>
+                            <div style="background: #dc3545; height: 8px; border-radius: 4px; width: 25%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 40px; border-radius: 15px; margin-top: 40px; text-align: center;">
+                <h3 style="margin-bottom: 25px;">Métriques Clés de Succès</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    <div>
+                        <div style="font-size: 2em; font-weight: 800;">€50K</div>
+                        <div>ACV Moyen</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2em; font-weight: 800;">6 mois</div>
+                        <div>Cycle de Vente</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2em; font-weight: 800;">15%</div>
+                        <div>Taux Conversion</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2em; font-weight: 800;">95%</div>
+                        <div>Rétention Net</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: Besoins de Financement -->
+        <div class="slide">
+            <div class="slide-number">13/15</div>
+            <h2>Levée de Fonds - Série A</h2>
+            <div class="two-column">
+                <div>
+                    <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 40px; border-radius: 20px; text-align: center; margin-bottom: 30px;">
+                        <h3 style="margin-bottom: 20px;">Montant Recherché</h3>
+                        <div style="font-size: 4em; font-weight: 800; margin: 20px 0;">€8M</div>
+                        <p style="font-size: 1.1em; margin: 0;">Pour 18 mois de développement</p>
+                    </div>
+                    
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">Utilisation des Fonds</h3>
+                    <div style="space-y: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #f8f9fa; border-radius: 10px; margin-bottom: 15px;">
+                            <span><strong>👥 Équipe R&D</strong></span>
+                            <span style="background: #667eea; color: white; padding: 5px 15px; border-radius: 20px;"><strong>40%</strong></span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #f8f9fa; border-radius: 10px; margin-bottom: 15px;">
+                            <span><strong>📈 Sales & Marketing</strong></span>
+                            <span style="background: #28a745; color: white; padding: 5px 15px; border-radius: 20px;"><strong>30%</strong></span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #f8f9fa; border-radius: 10px; margin-bottom: 15px;">
+                            <span><strong>🏗️ Infrastructure</strong></span>
+                            <span style="background: #ffc107; color: white; padding: 5px 15px; border-radius: 20px;"><strong>20%</strong></span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #f8f9fa; border-radius: 10px;">
+                            <span><strong>💼 Opérations</strong></span>
+                            <span style="background: #dc3545; color: white; padding: 5px 15px; border-radius: 20px;"><strong>10%</strong></span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">Objectifs 18 Mois</h3>
+                    <div class="feature-grid" style="grid-template-columns: 1fr; gap: 15px;">
+                        <div style="padding: 20px; background: linear-gradient(135deg, #e8f5e8, #d4edda); border-left: 5px solid #28a745; border-radius: 10px;">
+                            <strong>💰 ARR €6M</strong><br>
+                            <small>300+ clients actifs, expansion Europe</small>
+                        </div>
+                        <div style="padding: 20px; background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-left: 5px solid #2196f3; border-radius: 10px;">
+                            <strong>👥 Équipe 80 personnes</strong><br>
+                            <small>Focus R&D, sales, customer success</small>
+                        </div>
+                        <div style="padding: 20px; background: linear-gradient(135deg, #fff3e0, #ffcc80); border-left: 5px solid #ff9800; border-radius: 10px;">
+                            <strong>🏆 Leader Marché France</strong><br>
+                            <small>20% parts de marché tokens numériques</small>
+                        </div>
+                        <div style="padding: 20px; background: linear-gradient(135deg, #fce4ec, #f8bbd9); border-left: 5px solid #e91e63; border-radius: 10px;">
+                            <strong>🌍 Expansion Internationale</strong><br>
+                            <small>UK, Allemagne, Benelux - premiers clients</small>
+                        </div>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); padding: 30px; border-radius: 15px; margin-top: 30px;">
+                        <h4 style="color: #2c3e50; margin-bottom: 20px; text-align: center;">Milestones Clés</h4>
+                        <div style="display: flex; justify-content: space-between; text-align: center; flex-wrap: wrap;">
+                            <div style="margin: 10px;">
+                                <div style="font-size: 1.5em; font-weight: 700; color: #667eea;">T1</div>
+                                <small>Version 2.0<br>Mobile Apps</small>
+                            </div>
+                            <div style="margin: 10px;">
+                                <div style="font-size: 1.5em; font-weight: 700; color: #28a745;">T2</div>
+                                <small>€2M ARR<br>50 clients</small>
+                            </div>
+                            <div style="margin: 10px;">
+                                <div style="font-size: 1.5em; font-weight: 700; color: #ffc107;">T3</div>
+                                <small>UK Launch<br>Certifications</small>
+                            </div>
+                            <div style="margin: 10px;">
+                                <div style="font-size: 1.5em; font-weight: 700; color: #dc3545;">T4</div>
+                                <small>€6M ARR<br>Série B Ready</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Risques & Mitigation -->
+        <div class="slide">
+            <div class="slide-number">14/15</div>
+            <h2>Analyse des Risques & Stratégies</h2>
+            <div class="two-column">
+                <div>
+                    <h3 style="color: #dc3545;">⚠️ Risques Identifiés</h3>
+                    <div class="feature-grid" style="grid-template-columns: 1fr; gap: 15px;">
+                        <div style="padding: 20px; background: linear-gradient(135deg, #ffebee, #ffcdd2); border-left: 5px solid #f44336; border-radius: 10px;">
+                            <strong>Concurrence Big Tech</strong><br>
+                            <small>Google, Microsoft pourraient développer des solutions similaires</small>
+                        </div>
+                        <div style="padding: 20px; background: linear-gradient(135deg, #ffebee, #ffcdd2); border-left: 5px solid #f44336; border-radius: 10px;">
+                            <strong>Réglementation</strong><br>
+                            <small>Évolution RGPD, nouvelles lois cybersécurité</small>
+                        </div>
+                        <div style="padding: 20px; background: linear-gradient(135deg, #ffebee, #ffcdd2); border-left: 5px solid #f44336; border-radius: 10px;">
+                            <strong>Adoption Marché</strong><br>
+                            <small>Résistance changement, cycles d'adoption longs</small>
+                        </div>
+                        <div style="padding: 20px; background: linear-gradient(135deg, #ffebee, #ffcdd2); border-left: 5px solid #f44336; border-radius: 10px;">
+                            <strong>Talent & Recrutement</strong><br>
+                            <small>Pénurie développeurs cybersécurité, guerre des talents</small>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="color: #28a745;">🛡️ Stratégies de Mitigation</h3>
+                    <div class="feature-grid" style="grid-template-columns: 1fr; gap: 15px;">
+                        <div style="padding: 20px; background: linear-gradient(135deg, #e8f5e8, #c8e6c9); border-left: 5px solid #4caf50; border-radius: 10px;">
+                            <strong>Innovation Continue</strong><br>
+                            <small>R&D 25% budget, brevets, avance technologique 18 mois</small>
+                        </div>
+                        <div style="padding: 20px; background: linear-gradient(135deg, #e8f5e8, #c8e6c9); border-left: 5px solid #4caf50; border-radius: 10px;">
+                            <strong>Compliance Proactive</strong><br>
+                            <small>Équipe juridique, certifications préventives, lobbying</small>
+                        </div>
+                        <div style="padding: 20px; background: linear-gradient(135deg, #e8f5e8, #c8e6c9); border-left: 5px solid #4caf50; border-radius: 10px;">
+                            <strong>Go-to-Market Agressif</strong><br>
+                            <small>Early adopters, success stories, network effects</small>
+                        </div>
+                        <div style="padding: 20px; background: linear-gradient(135deg, #e8f5e8, #c8e6c9); border-left: 5px solid #4caf50; border-radius: 10px;">
+                            <strong>Culture & Rétention</strong><br>
+                            <small>Equity, remote-first, formation continue, tech stack moderne</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 40px; border-radius: 20px; margin-top: 40px;">
+                <h3 style="text-align: center; margin-bottom: 30px;">🎯 Facteurs Critiques de Succès</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
+                    <div style="text-align: center; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 15px; backdrop-filter: blur(10px);">
+                        <div style="font-size: 2.5em; margin-bottom: 10px;">⏰</div>
+                        <strong>Time-to-Market</strong><br>
+                        <small>Première solution native sur le marché</small>
+                    </div>
+                    <div style="text-align: center; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 15px; backdrop-filter: blur(10px);">
+                        <div style="font-size: 2.5em; margin-bottom: 10px;">🎯</div>
+                        <strong>Product-Market Fit</strong><br>
+                        <small>Validation clients, métriques engagement</small>
+                    </div>
+                    <div style="text-align: center; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 15px; backdrop-filter: blur(10px);">
+                        <div style="font-size: 2.5em; margin-bottom: 10px;">👥</div>
+                        <strong>Exécution</strong><br>
+                        <small>Équipe expérimentée, track record prouvé</small>
+                    </div>
+                    <div style="text-align: center; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 15px; backdrop-filter: blur(10px);">
+                        <div style="font-size: 2.5em; margin-bottom: 10px;">📈</div>
+                        <strong>Scalabilité</strong><br>
+                        <small>Architecture cloud-native, croissance durable</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 15: Appel à l'Action -->
+        <div class="slide">
+            <div class="slide-number">15/15</div>
+            <div class="hero-content">
+                <h1 style="font-size: 3.5em; margin-bottom: 30px;">Rejoignez la Révolution</h1>
+                <p style="font-size: 1.4em; color: #2c3e50; margin-bottom: 40px; font-weight: 500;">
+                    IDPro+ redéfinit la sécurité documentaire pour l'ère numérique
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin: 50px 0;">
+                    <div style="text-align: center; padding: 30px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1)); border-radius: 20px; border: 2px solid rgba(102, 126, 234, 0.2);">
+                        <div style="font-size: 3em; color: #667eea; font-weight: 800;">€650M</div>
+                        <div style="color: #2c3e50; font-weight: 600;">Valorisation 2029</div>
+                    </div>
+                    <div style="text-align: center; padding: 30px; background: linear-gradient(135deg, rgba(40, 167, 69, 0.1), rgba(32, 201, 151, 0.1)); border-radius: 20px; border: 2px solid rgba(40, 167, 69, 0.2);">
+                        <div style="font-size: 3em; color: #28a745; font-weight: 800;">25x ROI</div>
+                        <div style="color: #2c3e50; font-weight: 600;">Retour sur 5 ans</div>
+                    </div>
+                    <div style="text-align: center; padding: 30px; background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 152, 0, 0.1)); border-radius: 20px; border: 2px solid rgba(255, 193, 7, 0.2);">
+                        <div style="font-size: 3em; color: #ffc107; font-weight: 800;">€8M</div>
+                        <div style="color: #2c3e50; font-weight: 600;">Série A - 2025</div>
+                    </div>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #667eea, #764ba2, #f093fb); padding: 50px; border-radius: 25px; margin: 40px 0; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"2\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E'); animation: float 20s ease-in-out infinite;"></div>
+                    <div style="position: relative; z-index: 2; color: white; text-align: center;">
+                        <h2 style="font-size: 2.5em; margin-bottom: 25px; font-weight: 700;">Prêts à Transformer la Cybersécurité ?</h2>
+                        <p style="font-size: 1.3em; margin-bottom: 35px; opacity: 0.95;">
+                            Investissez dans l'avenir de la protection documentaire numérique
+                        </p>
+                        <a href="#contact" class="cta-button" style="display: inline-block; background: rgba(255,255,255,0.95); color: #667eea; padding: 20px 60px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.4em; margin-right: 20px; transition: all 0.3s ease; border: 2px solid rgba(255,255,255,0.3);">
+                            💰 Investir Maintenant
+                        </a>
+                        <a href="#demo" class="cta-button" style="display: inline-block; background: transparent; color: white; padding: 20px 60px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.4em; transition: all 0.3s ease; border: 2px solid rgba(255,255,255,0.5);">
+                            📊 Demander une Demo
+                        </a>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.8); backdrop-filter: blur(20px); padding: 40px; border-radius: 20px; margin-top: 40px;">
+                    <h3 style="color: #2c3e50; margin-bottom: 25px; text-align: center;">📞 Contactez-nous</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
+                        <div>
+                            <strong style="color: #667eea;">Jean-Luc SIMON</strong><br>
+                            <small>CEO & Co-fondateur</small><br>
+                            <a href="mailto:jl.simon@idproplus.com" style="color: #6c757d;">jl.simon@idproplus.com</a>
+                        </div>
+                        <div>
+                            <strong style="color: #667eea;">Marie DUPONT</strong><br>
+                            <small>CTO & Co-fondatrice</small><br>
+                            <a href="mailto:m.dupont@idproplus.com" style="color: #6c757d;">m.dupont@idproplus.com</a>
+                        </div>
+                        <div>
+                            <strong style="color: #667eea;">Pierre LAURENT</strong><br>
+                            <small>VP Sales</small><br>
+                            <a href="mailto:p.laurent@idproplus.com" style="color: #6c757d;">p.laurent@idproplus.com</a>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 30px; padding-top: 30px; border-top: 2px solid rgba(102, 126, 234, 0.1);">
+                        <p style="color: #6c757d; margin: 0; font-size: 1.1em;">
+                            🌐 <strong>www.idproplus.com</strong> | 📞 +33 1 42 00 00 00 | 📍 Paris, France
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animation de chargement
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 1000);
+        });
+
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.slide').forEach(slide => {
+            observer.observe(slide);
+        });
+
+        // Smooth scroll pour les liens
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Effet parallaxe léger
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelectorAll('.slide').forEach((slide, index) => {
+                const rate = scrolled * -0.1;
+                slide.style.transform = `translateY(${rate * (index % 2 === 0 ? 1 : -1)}px)`;
+            });
+        });
+
+        // Animation des statistiques
+        function animateNumbers() {
+            document.querySelectorAll('.stat-number').forEach(stat => {
+                const finalValue = stat.textContent;
+                const numericValue = parseInt(finalValue.replace(/[^0-9]/g, ''));
+                if (numericValue) {
+                    let currentValue = 0;
+                    const increment = numericValue / 50;
+                    const timer = setInterval(() => {
+                        currentValue += increment;
+                        if (currentValue >= numericValue) {
+                            currentValue = numericValue;
+                            clearInterval(timer);
+                        }
+                        const suffix = finalValue.replace(/[0-9]/g, '');
+                        stat.textContent = Math.floor(currentValue) + suffix.replace(/[0-9]/g, '');
+                    }, 30);
+                }
+            });
+        }
+
+        // Démarrer l'animation des chiffres après le chargement
+        setTimeout(animateNumbers, 1500);
+    </script>
+</body>
+</html>
