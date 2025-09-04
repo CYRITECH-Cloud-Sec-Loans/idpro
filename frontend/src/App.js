@@ -205,6 +205,7 @@ function App() {
           <Route path="/" element={<Home />}>
             <Route index element={<Home />} />
           </Route>
+          <Route path="/presentation" element={<PresentationPage />} />
         </Routes>
       </BrowserRouter>
     </div>
